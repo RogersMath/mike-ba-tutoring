@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Mike Ba Tutoring</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="font-default" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+/* Layout: full-width brand-colored hero with a pattern, then one calm reading column. Brands swap tokens only; layout never changes. */
+:root {
+  --l-bg: #F3F5FA; --l-surface: #FFFFFF; --l-ink: #141B3A; --l-hero: #1B2566; --l-hero-ink: #F3F5FA; --l-accent: #E3A41C; --l-on-accent: #141B3A; --l-accent-text: #7A4F00;
+  --d-bg: #0D1230; --d-surface: #151C45; --d-ink: #E9ECF8; --d-hero: #172060; --d-hero-ink: #F3F5FA; --d-accent: #F0B43A; --d-on-accent: #101635; --d-accent-text: #F0B43A;
+  --bg: var(--l-bg); --surface: var(--l-surface); --ink: var(--l-ink); --hero: var(--l-hero); --hero-ink: var(--l-hero-ink);
+  --accent: var(--l-accent); --on-accent: var(--l-on-accent); --accent-text: var(--l-accent-text);
+  --muted: color-mix(in srgb, var(--ink) 70%, var(--bg));
+  --line: color-mix(in srgb, var(--ink) 16%, var(--bg));
+  --soft: color-mix(in srgb, var(--ink) 7%, var(--bg));
+  --hero-muted: color-mix(in srgb, var(--hero-ink) 74%, var(--hero));
+  --pat: color-mix(in srgb, var(--hero-ink) 11%, transparent);
+  --r: 4px; --r-card: 4px;
+  --f-display: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif;
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif;
+  --h-w: 800; --h3-w: 600; --h-ls: -0.02em;
+  --pat-img: radial-gradient(circle, var(--pat) 2px, transparent 2.6px), radial-gradient(circle, var(--pat) 2px, transparent 2.6px);
+  --pat-size: 26px 26px; --pat-pos: 0 0, 13px 13px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--d-bg); --surface: var(--d-surface); --ink: var(--d-ink); --hero: var(--d-hero); --hero-ink: var(--d-hero-ink);
+    --accent: var(--d-accent); --on-accent: var(--d-on-accent); --accent-text: var(--d-accent-text); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: var(--d-bg); --surface: var(--d-surface); --ink: var(--d-ink); --hero: var(--d-hero); --hero-ink: var(--d-hero-ink);
+  --accent: var(--d-accent); --on-accent: var(--d-on-accent); --accent-text: var(--d-accent-text); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 1.0625rem; line-height: 1.6; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.1; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); font-weight: var(--h-w); letter-spacing: var(--h-ls); }
+h3 { font-size: 1.25rem; font-weight: var(--h3-w); }
+p { margin: 0; }
+.wrap { max-width: 1080px; margin-inline: auto; padding-inline: 16px; }
+@media (min-width: 700px) { .wrap { padding-inline: 32px; } }
+.label { font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-text); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--hero); color: var(--hero-ink); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--f-display); font-weight: var(--h-w); font-size: 1.15rem; text-decoration: none; letter-spacing: var(--h-ls); }
+.brand svg { width: 30px; height: 30px; flex: none; }
+.bar nav { display: flex; gap: 18px; font-size: 0.95rem; }
+.bar nav a { text-decoration: none; color: var(--hero-muted); }
+.bar nav a:hover { color: var(--hero-ink); }
+@media (max-width: 900px) { .bar nav { display: none; } }
+.ctl { display: flex; align-items: center; gap: 8px; }
+.seg { display: inline-flex; border: 1.5px solid var(--hero-muted); border-radius: var(--r); overflow: hidden; }
+.seg button { font: 700 0.9rem var(--f-body); min-height: 44px; min-width: 44px; padding: 0 10px; background: transparent; color: var(--hero-ink); border: 0; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+.bar select { font: 700 0.9rem var(--f-body); min-height: 44px; max-width: 150px; padding: 0 8px; background: var(--hero); color: var(--hero-ink); border: 1.5px solid var(--hero-muted); border-radius: var(--r); }
+
+.hero { background-color: var(--hero); color: var(--hero-ink); background-image: var(--pat-img); background-size: var(--pat-size); background-position: var(--pat-pos); padding-block: clamp(40px, 7vw, 88px) clamp(32px, 5vw, 56px); }
+.hero h1 { font-size: clamp(2.3rem, 6.4vw, 4.4rem); font-weight: var(--h-w); letter-spacing: var(--h-ls); max-width: 16ch; }
+.hero .lead { font-size: clamp(1.1rem, 2.2vw, 1.35rem); color: var(--hero-muted); max-width: 46ch; margin-top: 20px; }
+.hero .label { color: var(--accent); display: block; margin-bottom: 16px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; font: 700 1rem var(--f-body); text-decoration: none; border: 2px solid var(--accent); background: var(--accent); color: var(--on-accent); cursor: pointer; border-radius: var(--r); }
+.btn.ghost { background: transparent; color: var(--hero-ink); border-color: var(--hero-muted); }
+.btn:hover { filter: brightness(1.06); }
+.btn.small { min-height: 44px; padding: 0 16px; font-size: 0.92rem; background: transparent; color: var(--ink); border-color: var(--ink); }
+.langs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; padding: 0; list-style: none; }
+.langs li { padding: 5px 12px; border: 1px solid var(--hero-muted); font-size: 0.9rem; border-radius: 99px; }
+.weeks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 40px 0 0; padding: 0; list-style: none; }
+@media (min-width: 820px) { .weeks { grid-template-columns: repeat(8, 1fr); } }
+.weeks li { padding: 10px 10px 12px; border-top: 3px solid var(--hero-muted); background: color-mix(in srgb, var(--hero-ink) 8%, transparent); min-width: 0; }
+.weeks b { display: block; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hero-muted); }
+.weeks span { display: block; font-size: 0.95rem; line-height: 1.25; margin-top: 4px; overflow-wrap: anywhere; }
+.weeks li.goal { border-top-color: var(--accent); background: color-mix(in srgb, var(--accent) 22%, transparent); }
+.weeks li.goal b { color: var(--accent); }
+.weeks-note { margin-top: 12px; font-size: 0.9rem; color: var(--hero-muted); }
+
+section { padding-block: clamp(40px, 6vw, 72px); }
+.alt { background: var(--soft); }
+.head { display: grid; gap: 10px; margin-bottom: 28px; max-width: 62ch; }
+.head p { color: var(--muted); }
+.offers { border-top: 2px solid var(--ink); }
+.offer { display: grid; grid-template-columns: 1fr; gap: 6px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 760px) { .offer { grid-template-columns: 5fr 7fr; gap: 32px; } }
+.offer p { color: var(--muted); max-width: 58ch; }
+.why { display: grid; gap: 28px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .why { grid-template-columns: repeat(3, 1fr); } }
+.why > div { min-width: 0; border-left: 4px solid var(--accent); padding-left: 16px; }
+.why p { color: var(--muted); margin-top: 6px; }
+
+/* brand studio */
+.pick { display: grid; gap: 12px; grid-template-columns: 1fr; margin-bottom: 32px; }
+@media (min-width: 640px) { .pick { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px) { .pick { grid-template-columns: repeat(5, 1fr); } }
+.pick button { text-align: left; font: inherit; color: var(--ink); background: var(--surface); border: 2px solid var(--line); border-radius: var(--r-card); padding: 0 0 12px; cursor: pointer; display: grid; gap: 6px; min-width: 0; overflow: hidden; }
+.pick button[aria-pressed="true"] { border-color: var(--accent-text); box-shadow: 0 0 0 2px var(--accent-text); }
+.pick .strip { display: flex; height: 36px; }
+.pick .strip i { flex: 1; display: block; }
+.pick b { font-family: var(--f-display); font-size: 1.1rem; padding: 0 12px; }
+.pick small { padding: 0 12px; color: var(--muted); font-size: 0.9rem; line-height: 1.35; }
+.guide { display: grid; gap: 28px; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .guide { grid-template-columns: 1fr 1fr; } }
+.gcard { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); padding: 20px; min-width: 0; display: grid; gap: 12px; align-content: start; }
+.gcard.wide { grid-column: 1 / -1; }
+.gcard h3 { font-size: 1.1rem; }
+.gcard ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.logo-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.logo-row svg { width: 72px; height: 72px; color: var(--accent-text); }
+.logo-word { font-family: var(--f-display); font-weight: var(--h-w); font-size: 2rem; letter-spacing: var(--h-ls); line-height: 1; }
+.chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.chip { border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; min-width: 0; background: var(--bg); }
+.chip i { display: block; height: 48px; }
+.chip div { padding: 6px 10px 8px; font-size: 0.85rem; line-height: 1.35; }
+.chip b { display: block; font-size: 0.92rem; }
+.specimen { border-top: 1px solid var(--line); padding-top: 10px; }
+.specimen .big { font-family: var(--f-display); font-weight: var(--h-w); font-size: 2rem; letter-spacing: var(--h-ls); line-height: 1.1; }
+.dd { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 560px) { .dd { grid-template-columns: 1fr 1fr; } }
+.dd h4, .gcard h4 { margin: 0 0 6px; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-text); }
+.tag { display: inline-block; padding: 2px 10px; border: 1px solid var(--accent-text); border-radius: 99px; font-size: 0.85rem; margin: 0 6px 6px 0; }
+.src { margin-top: 28px; display: grid; gap: 8px; }
+.src ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.src small { color: var(--muted); }
+
+.progress { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); padding: 16px 18px; margin-bottom: 28px; display: grid; gap: 10px; }
+.progress .row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-weight: 700; }
+.meter { height: 12px; background: var(--soft); border-radius: 6px; overflow: hidden; }
+.meter i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.3s; }
+.progress small { color: var(--muted); font-size: 0.9rem; }
+.phase { display: grid; gap: 16px; grid-template-columns: 1fr; padding-block: 28px; border-top: 1px solid var(--line); }
+@media (min-width: 900px) { .phase { grid-template-columns: 4fr 8fr; gap: 40px; } }
+.phase .when { font-family: var(--f-display); font-size: 0.95rem; font-weight: 800; color: var(--accent-text); letter-spacing: 0.04em; text-transform: uppercase; }
+.phase h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin: 6px 0 8px; }
+.phase .goal { color: var(--muted); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; min-width: 0; }
+.steps label { display: grid; grid-template-columns: 26px 1fr; gap: 10px; padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); cursor: pointer; align-items: start; }
+.steps label:hover { border-color: var(--accent-text); }
+.steps input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--accent-text); }
+.steps input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1px; }
+.done { margin-top: 12px; padding: 12px 14px; background: var(--soft); border-radius: var(--r); font-weight: 700; }
+.done em { font-style: normal; color: var(--accent-text); }
+.checks { display: grid; gap: 14px; grid-template-columns: 1fr; margin-top: 8px; }
+@media (min-width: 760px) { .checks { grid-template-columns: 1fr 1fr; } }
+.check { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: var(--r-card); padding: 18px; min-width: 0; }
+.check ul { margin: 10px 0 0; padding-left: 20px; }
+.check li { margin-bottom: 4px; }
+
+.tools { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.group-title { margin: 36px 0 4px; padding-bottom: 6px; border-bottom: 2px solid var(--ink); display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.group-title span { font-size: 0.9rem; color: var(--muted); }
+details.fix { border-bottom: 1px solid var(--line); }
+details.fix summary { list-style: none; cursor: pointer; padding: 16px 40px 16px 0; position: relative; display: grid; gap: 2px; min-height: 48px; }
+details.fix summary::-webkit-details-marker { display: none; }
+details.fix summary::after { content: "+"; position: absolute; right: 6px; top: 12px; font: 400 1.8rem/1 var(--f-body); color: var(--accent-text); transition: transform 0.2s; }
+details.fix[open] summary::after { transform: rotate(45deg); }
+details.fix summary b { font-family: var(--f-display); font-size: 1.2rem; font-weight: var(--h3-w); }
+details.fix summary small { color: var(--muted); font-size: 0.95rem; }
+.fix-body { padding: 4px 0 22px; display: grid; gap: 16px; max-width: 70ch; }
+.fix-body h4 { margin: 0 0 4px; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-text); }
+.fix-body ol { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
+.fix-body .backup { background: var(--soft); border-radius: var(--r); padding: 12px 14px; }
+
+.prompts { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .prompts { grid-template-columns: 1fr 1fr; } }
+.prompt { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); display: grid; grid-template-rows: auto 1fr auto; min-width: 0; }
+.prompt header { padding: 14px 16px 0; }
+.prompt header p { color: var(--muted); font-size: 0.95rem; }
+.prompt pre { margin: 12px 16px; padding: 12px; background: var(--soft); border-radius: var(--r); white-space: pre-wrap; overflow-wrap: anywhere; font: 0.92rem/1.5 var(--f-body); }
+.prompt footer { padding: 0 16px 16px; }
+
+.help { background: var(--hero); color: var(--hero-ink); }
+.help .label { color: var(--accent); }
+.help .head p { color: var(--hero-muted); }
+.help ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .help ul { grid-template-columns: 1fr 1fr; } }
+.help li { border-top: 3px solid var(--accent); padding-top: 10px; min-width: 0; }
+.help li b { font-family: var(--f-display); font-size: 1.2rem; font-weight: var(--h3-w); display: block; }
+.help li span { color: var(--hero-muted); }
+.link-slot { margin-top: 32px; padding: 16px 18px; border: 2px dashed var(--hero-muted); border-radius: var(--r); }
+.link-slot b { color: var(--accent); }
+footer.site { padding-block: 28px 40px; color: var(--muted); font-size: 0.92rem; }
+footer.site p { max-width: 70ch; }
+[id] { scroll-margin-top: 76px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span id="barMark" aria-hidden="true"></span><span>Mike Ba</span></a>
+    <nav aria-label="Sections">
+      <a href="#brand" data-i="nav_brand"></a>
+      <a href="#plan" data-i="nav_plan"></a>
+      <a href="#trouble" data-i="nav_trouble"></a>
+      <a href="#help" data-i="nav_help"></a>
+    </nav>
+    <div class="ctl">
+      <select id="brandSel" aria-label="Style"></select>
+      <div class="seg" role="group" aria-label="Language">
+        <button type="button" id="lEN" aria-pressed="true">EN</button>
+        <button type="button" id="lFR" aria-pressed="false">FR</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <span class="label" data-i="hero_label"></span>
+      <h1 data-i="hero_h1"></h1>
+      <p class="lead" data-i="hero_lead"></p>
+      <div class="cta">
+        <a class="btn" href="#plan" data-i="hero_cta1"></a>
+        <a class="btn ghost" href="#help" data-i="hero_cta2"></a>
+      </div>
+      <ul class="langs"><li>English</li><li>Fran&ccedil;ais</li><li>&#1593;&#1585;&#1576;&#1610;</li><li>Wolof</li><li>Pulaar</li></ul>
+      <ol class="weeks" id="weeks"></ol>
+      <p class="weeks-note" data-i="weeks_note"></p>
+    </div>
+  </div>
+
+  <section id="offer">
+    <div class="wrap">
+      <div class="head"><span class="label" data-i="offer_label"></span><h2 data-i="offer_h2"></h2><p data-i="offer_p"></p></div>
+      <div class="offers" id="offers"></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="head"><span class="label" data-i="why_label"></span><h2 data-i="why_h2"></h2></div>
+      <div class="why" id="why"></div>
+    </div>
+  </section>
+
+  <section id="brand">
+    <div class="wrap">
+      <div class="head"><span class="label" data-i="brand_label"></span><h2 data-i="brand_h2"></h2><p data-i="brand_p"></p></div>
+      <div class="pick" id="pick" role="group"></div>
+      <div class="guide" id="guide"></div>
+      <div class="src" id="research"></div>
+    </div>
+  </section>
+
+  <section id="plan" class="alt">
+    <div class="wrap">
+      <div class="head"><span class="label" data-i="plan_label"></span><h2 data-i="plan_h2"></h2><p data-i="plan_p"></p></div>
+      <div class="progress" aria-live="polite">
+        <div class="row"><span id="progText"></span><span id="progPct">0%</span></div>
+        <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="meter"><i id="meterFill"></i></div>
+        <small data-i="prog_note"></small>
+      </div>
+      <div id="phases"></div>
+      <h3 style="margin-top: 36px;" data-i="cp_h"></h3>
+      <div class="checks" id="checks"></div>
+    </div>
+  </section>
+
+  <section id="trouble">
+    <div class="wrap">
+      <div class="head"><span class="label" data-i="tr_label"></span><h2 data-i="tr_h2"></h2><p data-i="tr_p"></p></div>
+      <div class="tools"><span style="color: var(--muted);" id="fixCount"></span><button class="btn small" id="toggleAll" type="button"></button></div>
+      <div id="fixes"></div>
+    </div>
+  </section>
+
+  <section id="ai" class="alt">
+    <div class="wrap">
+      <div class="head"><span class="label" data-i="ai_label"></span><h2 data-i="ai_h2"></h2><p data-i="ai_p"></p></div>
+      <div class="prompts" id="prompts"></div>
+    </div>
+  </section>
+
+  <section class="help" id="help">
+    <div class="wrap">
+      <div class="head"><span class="label" data-i="help_label"></span><h2 data-i="help_h2"></h2><p data-i="help_p"></p></div>
+      <ul id="helpList"></ul>
+      <div class="link-slot"><b data-i="slot_b"></b><br><span data-i="slot_t"></span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site"><div class="wrap"><p data-i="foot"></p></div></footer>
+<script>
+function L(en, fr) { return { en: en, fr: fr }; }
+
+var BRANDS = [
+{ id: "teranga",
+  name: L("Teranga Indigo", "Indigo Teranga"),
+  tag: L("Welcoming, trusted, rooted", "Accueillant, fiable, enraciné"),
+  idea: L("Teranga is the Wolof word for hospitality. The deep indigo is inspired by hand-dyed cloth across West Africa. Saffron stands for sunlight and for the one thing to click. The dotted band echoes resist-dyed cloth patterns.",
+          "Teranga est le mot wolof pour l'hospitalité. L'indigo profond s'inspire des tissus teints à la main en Afrique de l'Ouest. Le safran rappelle le soleil et marque la seule chose sur laquelle cliquer. Les points évoquent les motifs des tissus teints par réserve."),
+  l: { bg: "#F3F5FA", surface: "#FFFFFF", ink: "#141B3A", hero: "#1B2566", heroInk: "#F3F5FA", accent: "#E3A41C", onAccent: "#141B3A", accentText: "#7A4F00" },
+  d: { bg: "#0D1230", surface: "#151C45", ink: "#E9ECF8", hero: "#172060", heroInk: "#F3F5FA", accent: "#F0B43A", onAccent: "#101635", accentText: "#F0B43A" },
+  r: "4px", rc: "4px", hw: 800, h3w: 600, hls: "-0.02em",
+  fd: '"Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif', fb: '"Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif',
+  fonts: null, fontNames: "Bricolage Grotesque + Atkinson Hyperlegible",
+  pat: { img: "radial-gradient(circle, var(--pat) 2px, transparent 2.6px), radial-gradient(circle, var(--pat) 2px, transparent 2.6px)", size: "26px 26px", pos: "0 0, 13px 13px" },
+  mark: '<rect x="6" y="6" width="52" height="52" rx="4" fill="currentColor"/><path d="M32 14l14 18-14 18-14-18z" fill="var(--accent)"/>',
+  colors: [["hero", L("Indigo night", "Nuit indigo"), L("Big bands, header", "Grands bandeaux, en-tête")], ["accent", L("Saffron", "Safran"), L("Main buttons only", "Boutons principaux seulement")], ["bg", L("Chalk", "Craie"), L("Page background", "Fond de page")], ["ink", L("Deep ink", "Encre profonde"), L("Text", "Texte")], ["accentText", L("Amber text", "Ambre (texte)"), L("Small labels", "Petites étiquettes")]],
+  voiceWords: L("Warm, clear, patient", "Chaleureux, clair, patient"),
+  voiceLine: L("Welcome. Let's learn English together, at your speed.", "Bienvenue. Apprenons l'anglais ensemble, à votre rythme."),
+  dos: L(["Use indigo for large areas and saffron for one main button.", "Keep the dotted pattern on big bands only."], ["Utilisez l'indigo pour les grandes zones et le safran pour un seul bouton principal.", "Gardez les points sur les grands bandeaux seulement."]),
+  donts: L(["Do not put saffron text on white. It is hard to read.", "Do not say the pattern is a traditional cloth."], ["Ne mettez pas de texte safran sur fond blanc. C'est difficile à lire.", "Ne dites pas que le motif est un tissu traditionnel."]),
+  best: L("A calm, trusted look for parents, schools, and partners.", "Un style calme et fiable pour les parents, les écoles et les partenaires."),
+  trade: L("Loads two web fonts.", "Charge deux polices web.") },
+
+{ id: "moringa",
+  name: L("Moringa", "Moringa"),
+  tag: L("Growing, practical, kind", "Qui grandit, pratique, bienveillant"),
+  idea: L("The moringa tree feeds people and grows fast in dry land. It links this business to Mike's moringa work. Deep green says growth and care. Lime marks the one action to take. Soft round shapes feel safe for learners.",
+          "Le moringa nourrit les gens et pousse vite en terre sèche. Il relie cette activité au travail de Mike sur le moringa. Le vert profond dit la croissance et le soin. Le citron vert marque l'action à faire. Les formes arrondies rassurent les apprenants."),
+  l: { bg: "#F4F8F1", surface: "#FFFFFF", ink: "#14301F", hero: "#1F5130", heroInk: "#F4F8F1", accent: "#B6D94A", onAccent: "#14301F", accentText: "#3E6B12" },
+  d: { bg: "#0C1A12", surface: "#13261A", ink: "#E6F2E6", hero: "#173D25", heroInk: "#F4F8F1", accent: "#C4E35A", onAccent: "#0C1A12", accentText: "#C4E35A" },
+  r: "12px", rc: "16px", hw: 600, h3w: 600, hls: "-0.01em",
+  fd: '"Outfit", "Trebuchet MS", "Segoe UI", sans-serif', fb: '"Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif',
+  fonts: "https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap", fontNames: "Outfit + Atkinson Hyperlegible",
+  pat: { img: "repeating-linear-gradient(135deg, var(--pat) 0 2px, transparent 2px 22px)", size: "auto", pos: "0 0" },
+  mark: '<path d="M10 54C8 28 24 10 54 10c2 28-14 46-44 44z" fill="currentColor"/><path d="M16 48C28 36 38 26 48 16" stroke="var(--accent)" stroke-width="4" fill="none" stroke-linecap="round"/>',
+  colors: [["hero", L("Moringa leaf", "Feuille de moringa"), L("Big bands, header", "Grands bandeaux, en-tête")], ["accent", L("Fresh lime", "Citron vert"), L("Main buttons only", "Boutons principaux seulement")], ["bg", L("Morning mist", "Brume du matin"), L("Page background", "Fond de page")], ["ink", L("Forest ink", "Encre forêt"), L("Text", "Texte")], ["accentText", L("Garden green", "Vert jardin"), L("Small labels", "Petites étiquettes")]],
+  voiceWords: L("Growing, practical, kind", "En croissance, pratique, bienveillant"),
+  voiceLine: L("Small steps grow into strong English.", "Les petits pas font grandir un anglais solide."),
+  dos: L(["Leave lots of white space around text.", "Use lime for one action per screen."], ["Laissez beaucoup d'espace autour du texte.", "Utilisez le citron vert pour une seule action par écran."]),
+  donts: L(["Do not put green and red side by side. Some people cannot tell them apart.", "Do not use pale green for text."], ["Ne mettez pas le vert et le rouge côte à côte. Certaines personnes ne les distinguent pas.", "N'utilisez pas de vert pâle pour le texte."]),
+  best: L("Ties to Mike's moringa and school-garden work. Feels caring and practical.", "Se relie au travail de Mike sur le moringa et les jardins scolaires. Style bienveillant et concret."),
+  trade: L("Green is a very common color, so it can look like many others.", "Le vert est très courant et peut ressembler à beaucoup d'autres marques.") },
+
+{ id: "griot",
+  name: L("Griot", "Griot"),
+  tag: L("Story-first, proud, musical", "Conteur, fier, musical"),
+  idea: L("A griot is a West African storyteller and keeper of memory. A teacher is one too. Wine red and gold feel like a stage. The mark is a talking drum. Square corners and a serif headline feel confident.",
+          "Un griot est un conteur et un gardien de la mémoire en Afrique de l'Ouest. Un enseignant l'est aussi. Le rouge vin et l'or évoquent une scène. Le symbole est un tama, le tambour parlant. Les angles droits et les titres à empattements inspirent la confiance."),
+  l: { bg: "#F7F3F4", surface: "#FFFFFF", ink: "#2A1220", hero: "#5A1636", heroInk: "#FBF3F6", accent: "#F2C14E", onAccent: "#2A1220", accentText: "#8A1B4E" },
+  d: { bg: "#170A12", surface: "#231019", ink: "#F3E8EE", hero: "#4A1230", heroInk: "#FBF3F6", accent: "#F2C14E", onAccent: "#170A12", accentText: "#F2C14E" },
+  r: "0px", rc: "0px", hw: 400, h3w: 400, hls: "0em",
+  fd: '"Young Serif", Georgia, "Times New Roman", serif', fb: '"Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif',
+  fonts: "https://fonts.googleapis.com/css2?family=Young+Serif&display=swap", fontNames: "Young Serif + Atkinson Hyperlegible",
+  pat: { img: "repeating-linear-gradient(90deg, var(--pat) 0 6px, transparent 6px 14px, var(--pat) 14px 16px, transparent 16px 40px)", size: "auto", pos: "0 0" },
+  mark: '<path d="M12 8h40L38 32l14 24H12l14-24z" fill="currentColor"/><path d="M20 14h24M20 50h24" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>',
+  colors: [["hero", L("Wine", "Vin"), L("Big bands, header", "Grands bandeaux, en-tête")], ["accent", L("Gold", "Or"), L("Main buttons only", "Boutons principaux seulement")], ["bg", L("Paper", "Papier"), L("Page background", "Fond de page")], ["ink", L("Dark plum", "Prune sombre"), L("Text", "Texte")], ["accentText", L("Rich berry", "Baie profonde"), L("Small labels", "Petites étiquettes")]],
+  voiceWords: L("Story-first, proud, musical", "Conteur, fier, musical"),
+  voiceLine: L("Every lesson is a story. Yours is next.", "Chaque leçon est une histoire. La vôtre est la prochaine."),
+  dos: L(["Use the serif for headlines only.", "Keep body text in the plain sans font."], ["Utilisez la police à empattements pour les titres seulement.", "Gardez le texte courant en police sans empattements."]),
+  donts: L(["Do not set long paragraphs in the serif.", "Do not put gold text on a light background."], ["Ne composez pas de longs paragraphes en police à empattements.", "Ne mettez pas de texte or sur fond clair."]),
+  best: L("The most distinctive. Fits teaching and storytelling.", "Le plus distinctif. Convient à l'enseignement et au conte."),
+  trade: L("More formal. The headline font is light, so check small sizes.", "Plus formel. La police des titres est fine, vérifiez les petites tailles.") },
+
+{ id: "atlantic",
+  name: L("Atlantic", "Atlantique"),
+  tag: L("Friendly, open, lively", "Amical, ouvert, vivant"),
+  idea: L("Dakar sits on the Atlantic coast, and an ocean connects Mike to students far away. Deep teal and coral feel fresh and young. Lexend is a font designed to make reading easier. Round corners and a wave mark keep it friendly.",
+          "Dakar borde l'océan Atlantique, et un océan relie Mike à des élèves lointains. Le bleu-vert profond et le corail sont frais et jeunes. Lexend est une police conçue pour faciliter la lecture. Les coins arrondis et la vague restent amicaux."),
+  l: { bg: "#F1F7F8", surface: "#FFFFFF", ink: "#0C2A33", hero: "#0B4F5C", heroInk: "#F1F7F8", accent: "#FF7A5C", onAccent: "#0C2A33", accentText: "#B83A1B" },
+  d: { bg: "#08171B", surface: "#0F262C", ink: "#E3F1F3", hero: "#0A3E49", heroInk: "#F1F7F8", accent: "#FF8E72", onAccent: "#08171B", accentText: "#FF8E72" },
+  r: "14px", rc: "20px", hw: 600, h3w: 600, hls: "-0.01em",
+  fd: '"Lexend", "Trebuchet MS", "Segoe UI", sans-serif', fb: '"Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif',
+  fonts: "https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap", fontNames: "Lexend + Atkinson Hyperlegible",
+  pat: { img: "radial-gradient(circle at 50% 120%, transparent 12px, var(--pat) 12px 14px, transparent 14px)", size: "32px 16px", pos: "0 0" },
+  mark: '<circle cx="32" cy="32" r="26" fill="currentColor"/><path d="M10 34c7-8 13-8 22 0s15 8 22 0" stroke="var(--accent)" stroke-width="5" fill="none" stroke-linecap="round"/>',
+  colors: [["hero", L("Deep sea", "Mer profonde"), L("Big bands, header", "Grands bandeaux, en-tête")], ["accent", L("Coral", "Corail"), L("Main buttons only", "Boutons principaux seulement")], ["bg", L("Sea foam", "Écume"), L("Page background", "Fond de page")], ["ink", L("Night water", "Eau de nuit"), L("Text", "Texte")], ["accentText", L("Warm clay", "Argile chaude"), L("Small labels", "Petites étiquettes")]],
+  voiceWords: L("Friendly, open, lively", "Amical, ouvert, vivant"),
+  voiceLine: L("Let's talk! Your English starts today.", "Parlons ! Votre anglais commence aujourd'hui."),
+  dos: L(["Keep corners round and photos warm.", "Use the wave pattern on big bands only."], ["Gardez les coins arrondis et les photos chaleureuses.", "Utilisez les vagues sur les grands bandeaux seulement."]),
+  donts: L(["Do not use coral for long text.", "Do not put the wave pattern behind text."], ["N'utilisez pas le corail pour de longs textes.", "Ne placez pas les vagues derrière du texte."]),
+  best: L("Friendly and young. Half of Senegal is under 20, so it suits young learners.", "Amical et jeune. La moitié du Sénégal a moins de 20 ans environ, ce style plaît aux jeunes apprenants."),
+  trade: L("Teal and coral can feel like a travel brand.", "Le bleu-vert et le corail peuvent faire penser à une marque de voyage.") },
+
+{ id: "clear",
+  name: L("Clear & Fast", "Clair et rapide"),
+  tag: L("Direct, honest, quick", "Direct, honnête, rapide"),
+  idea: L("No pattern, no custom fonts, one blue. It uses the fonts already on each phone, so it loads fastest on slow networks. High contrast stays readable in bright sun. A plain look can feel very professional to partners.",
+          "Pas de motif, pas de police spéciale, un seul bleu. Il utilise les polices déjà présentes sur chaque téléphone, donc il se charge le plus vite sur un réseau lent. Le fort contraste reste lisible en plein soleil. Un style sobre peut paraître très professionnel aux partenaires."),
+  l: { bg: "#FFFFFF", surface: "#F4F5F7", ink: "#0F1115", hero: "#0F1115", heroInk: "#FFFFFF", accent: "#2F6BFF", onAccent: "#FFFFFF", accentText: "#1D4ED8" },
+  d: { bg: "#0B0C0F", surface: "#15171C", ink: "#F2F3F5", hero: "#15171C", heroInk: "#FFFFFF", accent: "#5B8CFF", onAccent: "#0B0C0F", accentText: "#8FB0FF" },
+  r: "2px", rc: "2px", hw: 800, h3w: 700, hls: "-0.02em",
+  fd: 'system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif', fb: 'system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif',
+  fonts: null, fontNames: "System fonts (no download)",
+  pat: { img: "none", size: "auto", pos: "0 0" },
+  mark: '<rect x="6" y="6" width="52" height="52" fill="currentColor"/><text x="32" y="43" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="28" fill="var(--hero)">MB</text>',
+  colors: [["hero", L("Ink black", "Noir encre"), L("Header, big bands", "En-tête, grands bandeaux")], ["accent", L("Signal blue", "Bleu signal"), L("Main buttons only", "Boutons principaux seulement")], ["bg", L("White", "Blanc"), L("Page background", "Fond de page")], ["ink", L("Near black", "Presque noir"), L("Text", "Texte")], ["accentText", L("Link blue", "Bleu de lien"), L("Small labels", "Petites étiquettes")]],
+  voiceWords: L("Direct, honest, quick", "Direct, honnête, rapide"),
+  voiceLine: L("English lessons. Book a time. Start today.", "Cours d'anglais. Réservez un créneau. Commencez aujourd'hui."),
+  dos: L(["Let white space and one blue button do the work.", "Keep photos small and light."], ["Laissez l'espace blanc et un seul bouton bleu faire le travail.", "Gardez des photos petites et légères."]),
+  donts: L(["Do not add a second accent color.", "Do not add heavy images or videos to the top of the page."], ["N'ajoutez pas de seconde couleur d'accent.", "N'ajoutez pas d'images ou de vidéos lourdes en haut de page."]),
+  best: L("Fastest on slow phones and most business-like for partners.", "Le plus rapide sur les téléphones lents et le plus professionnel pour les partenaires."),
+  trade: L("Least personality. It could be anyone's site.", "Le moins de personnalité. Ce pourrait être le site de n'importe qui.") }
+];
+var STR = {
+en: {
+  nav_brand: "Style", nav_plan: "The 8-week plan", nav_trouble: "If something goes wrong", nav_help: "Help Mike",
+  hero_label: "Online English tutoring · Senegal",
+  hero_h1: "Mike Ba is a teacher. He is opening his classroom to the world.",
+  hero_lead: "Mike lives in a small village in Senegal. In the next 8 weeks he will start online tutoring and find his first paying students. This page shows the plan, step by step, and what to do when things go wrong.",
+  hero_cta1: "See the 8-week plan", hero_cta2: "How you can help",
+  weeks: [["Week 1","Test how he gets paid"],["Week 2","Photo, video, bio"],["Week 3","Sign up and verify"],["Week 4","Profile goes live"],["Week 5","Trial lessons"],["Week 6","First paid lesson"],["Week 7","Raise the price"],["Week 8","Booking page and video"]],
+  weeks_note: "The goal is a first paid lesson by week 6. Day 60 is the latest.",
+  offer_label: "What Mike teaches", offer_h2: "Lessons in the language the student knows best",
+  offer_p: "Many learners give up because the lesson is all in English. Mike can explain hard ideas in Arabic, French, Wolof, or Pulaar, then help the student speak English with confidence.",
+  offers: [["English for Arabic speakers","Beginner and middle levels. Speaking, reading, and school English. Mike explains in Arabic when a student is stuck."],["English for French speakers","Students in Africa and Europe who need English for school, work, or a test. Mike explains in French."],["Later: translation and lesson packs","French and English translation. Short reading stories and worksheets. Wolof and Pulaar help for groups that need it. These start after the first students are booked."]],
+  why_label: "Why this can work", why_h2: "A small start with real demand",
+  why: [["People want English","Millions of people study English to get into school, find a job, or move abroad. They pay for a good teacher."],["It costs almost nothing to start","Mike needs a computer, internet, a quiet spot, and his time. He does not need a shop, a loan, or a new degree."],["One lesson can lead to many","Good lessons lead to reviews. Reviews lead to more students. Later come videos, packs, and a simple website."]],
+  brand_label: "Style studio", brand_h2: "Pick how the site looks and feels",
+  brand_p: "Five style ideas for Mike's brand. Tap one and the whole page changes, in both English and French. Each one has a short brand guide below.",
+  g_idea: "The idea", g_logo: "Logo", g_logo_rules: "Leave empty space around the mark equal to its height. Do not make it smaller than 24 pixels.", g_colors: "Colors", g_light: "Light", g_dark: "Dark",
+  g_type: "Fonts", g_type_note: "Headlines use the first font. Body text uses the second.", g_voice: "Voice", g_do: "Do", g_dont: "Don't", g_best: "Best for", g_trade: "Trade-off", g_sample: "Sample headline",
+  g_samplehead: "Learn English with Mike", g_sampletext: "Short lessons, clear steps, and a teacher who speaks your language.",
+  rs_h: "What we learned about Senegal",
+  rs_items: [
+    ["About 11.5 million people in Senegal were online in late 2025, around 61% of the population. There were 23.3 million mobile connections, and 91% could use 3G, 4G, or 5G.", "https://datareportal.com/reports/digital-2026-senegal", "DataReportal, Digital 2026: Senegal"],
+    ["Among social platforms, YouTube had the widest ad reach (about 5.4 million), ahead of Facebook (about 3.6 million). The median age is about 20.", "https://datareportal.com/reports/digital-2026-senegal", "DataReportal, Digital 2026: Senegal"],
+    ["A local web agency estimates that 88 to 92% of web visits come from phones, and that WhatsApp is close to universal among people online. These are estimates, not official counts.", "https://kolonell.com/en/blog/internet-social-media-statistics-senegal-2026", "Kolonell, Senegal digital statistics 2026"],
+    ["The same agency advises: load in under 3 seconds, strong text contrast for bright sun, tap targets of at least 44 pixels, a WhatsApp contact option, mobile money (Wave and Orange Money), and French next to English.", "https://kolonell.com/en/blog/accessibility-ux-mobile-first-african-market-2026", "Kolonell, mobile-first guide for African markets"]
+  ],
+  rs_do_h: "What this page does about it",
+  rs_do: ["It is light: no big images and one small script.", "English and French are built in. Use the EN and FR buttons.", "Buttons and tick boxes are at least 44 pixels tall.", "Text contrast is high in every style, in light and dark mode.", "Clear & Fast uses fonts already on the phone, so it needs no font download. The other styles download one or two fonts."],
+  rs_next: "Next for Mike's booking page: add a WhatsApp number and say which mobile money he accepts for local students.",
+  plan_label: "The 8-week plan", plan_h2: "Four steps to the first paid lesson",
+  plan_p: "Tick each box as it is done. Your ticks stay on this device only.",
+  prog_note: "Prices and site rules change. Always check each site's own pages before you decide.",
+  prog_text: function (d, t) { return d + " of " + t + " steps done"; },
+  done_when: "Done when: ",
+  cp_h: "Two checkpoints",
+  cps: [["Day 30 · end of week 4", ["Is at least one profile live and bookable?", "Can Mike take money out as cash?", "If either is no, stop everything else and fix that first. Use the fix list below."]], ["Day 45 · middle of week 6", ["Has anyone booked a trial lesson?", "If not, change three things this week: lower the price by $1 to $2, add a third site, and message 20 people.", "Then check again at day 52."]]],
+  tr_label: "If something goes wrong", tr_h2: "Every problem we expect, and what to do",
+  tr_p: "Open any problem to see what it looks like, why it happens, the steps to fix it, and a backup plan. Most delays come from money, ID checks, and slow bookings.",
+  fix_count: function (n) { return n + " problems and fixes"; }, open_all: "Open all", close_all: "Close all",
+  h_why: "Why it happens", h_do: "Do this", h_backup: "If that fails",
+  ai_label: "AI helper", ai_h2: "Copy a question, paste it into an AI chat",
+  ai_p: "These save hours. Always read the answer out loud. Fix anything that is not true or does not sound like Mike. The questions are in English because Mike's profile will be in English. The AI can also answer in French or Arabic if you ask.",
+  copy: "Copy", copied: "Copied", selected: "Selected. Press copy.",
+  help_label: "How you can help", help_h2: "Small things that make a big difference",
+  help_p: "New tutors need a first few students and a few honest reviews. Here is how friends can help.",
+  helps: [["Take a trial lesson","Book a lesson once his profile is live. Tell him what helped and what was confusing."],["Write a true review","After a real lesson, leave a short and honest review. Never write one for a lesson you did not take."],["Send one person","Think of one person who wants to learn English. Send them Mike's link."],["Check his words","Read his bio and watch his intro video. Tell him if anything is hard to understand."]],
+  slot_b: "Mike's lesson link", slot_t: "It will appear here when his profile goes live, around week 4.",
+  foot: "This is a launch plan, not a promise of income. Tutoring sites change their prices, fees, and rules, and payout options differ by country. Check each site's current pages. Ask a local advisor about taxes and rules in Senegal."
+},
+fr: {
+  nav_brand: "Style", nav_plan: "Le plan en 8 semaines", nav_trouble: "En cas de problème", nav_help: "Aider Mike",
+  hero_label: "Cours d'anglais en ligne · Sénégal",
+  hero_h1: "Mike Ba est enseignant. Il ouvre sa classe au monde entier.",
+  hero_lead: "Mike vit dans un petit village du Sénégal. Dans les 8 prochaines semaines, il va lancer ses cours en ligne et trouver ses premiers élèves payants. Cette page montre le plan, étape par étape, et quoi faire quand quelque chose ne va pas.",
+  hero_cta1: "Voir le plan en 8 semaines", hero_cta2: "Comment aider",
+  weeks: [["Semaine 1","Tester le paiement"],["Semaine 2","Photo, vidéo, bio"],["Semaine 3","Inscription et vérification"],["Semaine 4","Profil en ligne"],["Semaine 5","Cours d'essai"],["Semaine 6","Premier cours payé"],["Semaine 7","Augmenter le prix"],["Semaine 8","Page de réservation et vidéo"]],
+  weeks_note: "L'objectif est un premier cours payé avant la semaine 6. Le jour 60 est la limite.",
+  offer_label: "Ce que Mike enseigne", offer_h2: "Des cours dans la langue que l'élève connaît le mieux",
+  offer_p: "Beaucoup d'apprenants abandonnent parce que le cours est entièrement en anglais. Mike peut expliquer les idées difficiles en arabe, en français, en wolof ou en pulaar, puis aider l'élève à parler anglais avec confiance.",
+  offers: [["Anglais pour arabophones","Niveaux débutant et intermédiaire. Expression orale, lecture et anglais scolaire. Mike explique en arabe quand un élève est bloqué."],["Anglais pour francophones","Des élèves d'Afrique et d'Europe qui ont besoin d'anglais pour l'école, le travail ou un examen. Mike explique en français."],["Plus tard : traduction et lots de cours","Traduction français-anglais. Petites histoires à lire et fiches d'exercices. Aide en wolof et en pulaar pour les groupes qui en ont besoin. Cela commence après les premières réservations."]],
+  why_label: "Pourquoi cela peut marcher", why_h2: "Un petit début avec une vraie demande",
+  why: [["Les gens veulent l'anglais","Des millions de personnes étudient l'anglais pour entrer à l'école, trouver un emploi ou partir à l'étranger. Elles paient pour un bon professeur."],["Cela coûte presque rien pour commencer","Mike a besoin d'un ordinateur, d'internet, d'un endroit calme et de son temps. Pas de boutique, pas de prêt, pas de nouveau diplôme."],["Un cours peut en amener beaucoup","De bons cours donnent des avis. Les avis amènent d'autres élèves. Ensuite viennent les vidéos, les lots de cours et un site simple."]],
+  brand_label: "Atelier de style", brand_h2: "Choisissez l'allure et l'ambiance du site",
+  brand_p: "Cinq idées de style pour la marque de Mike. Touchez-en une et toute la page change, en français comme en anglais. Chacune a un petit guide de marque ci-dessous.",
+  g_idea: "L'idée", g_logo: "Logo", g_logo_rules: "Laissez autour du symbole un espace vide égal à sa hauteur. Ne le réduisez pas sous 24 pixels.", g_colors: "Couleurs", g_light: "Clair", g_dark: "Sombre",
+  g_type: "Polices", g_type_note: "Les titres utilisent la première police. Le texte courant utilise la seconde.", g_voice: "Ton", g_do: "À faire", g_dont: "À éviter", g_best: "Idéal pour", g_trade: "Limite", g_sample: "Exemple de titre",
+  g_samplehead: "Apprenez l'anglais avec Mike", g_sampletext: "Des cours courts, des étapes claires et un enseignant qui parle votre langue.",
+  rs_h: "Ce que nous avons appris sur le Sénégal",
+  rs_items: [
+    ["Environ 11,5 millions de personnes étaient en ligne au Sénégal fin 2025, soit environ 61 % de la population. Il y avait 23,3 millions de connexions mobiles, et 91 % pouvaient utiliser la 3G, la 4G ou la 5G.", "https://datareportal.com/reports/digital-2026-senegal", "DataReportal, Digital 2026: Senegal (en anglais)"],
+    ["Parmi les réseaux sociaux, YouTube avait la plus large audience publicitaire (environ 5,4 millions), devant Facebook (environ 3,6 millions). L'âge médian est d'environ 20 ans.", "https://datareportal.com/reports/digital-2026-senegal", "DataReportal, Digital 2026: Senegal (en anglais)"],
+    ["Une agence web locale estime que 88 à 92 % des visites web viennent de téléphones, et que WhatsApp est presque universel chez les personnes connectées. Ce sont des estimations, pas des chiffres officiels.", "https://kolonell.com/en/blog/internet-social-media-statistics-senegal-2026", "Kolonell, statistiques numériques du Sénégal 2026 (en anglais)"],
+    ["La même agence conseille : un chargement en moins de 3 secondes, un fort contraste du texte pour le plein soleil, des zones à toucher d'au moins 44 pixels, un contact WhatsApp, le paiement mobile (Wave et Orange Money) et le français à côté de l'anglais.", "https://kolonell.com/fr/blog/accessibilite-ux-mobile-first-marche-africain-2026", "Kolonell, guide mobile d'abord pour les marchés africains (en français)"]
+  ],
+  rs_do_h: "Ce que cette page en fait",
+  rs_do: ["Elle est légère : pas de grosses images et un petit script.", "Le français et l'anglais sont intégrés. Utilisez les boutons EN et FR.", "Les boutons et les cases à cocher font au moins 44 pixels de haut.", "Le contraste du texte est élevé dans tous les styles, en mode clair et sombre.", "Clair et rapide utilise les polices déjà présentes sur le téléphone, sans téléchargement. Les autres styles téléchargent une ou deux polices."],
+  rs_next: "Prochaine étape pour la page de réservation de Mike : ajouter un numéro WhatsApp et indiquer quel paiement mobile il accepte pour les élèves locaux.",
+  plan_label: "Le plan en 8 semaines", plan_h2: "Quatre étapes vers le premier cours payé",
+  plan_p: "Cochez chaque case quand c'est fait. Vos coches restent sur cet appareil seulement.",
+  prog_note: "Les prix et les règles des sites changent. Vérifiez toujours les pages de chaque site avant de décider.",
+  prog_text: function (d, t) { return d + " étapes sur " + t + " terminées"; },
+  done_when: "Terminé quand : ",
+  cp_h: "Deux points de contrôle",
+  cps: [["Jour 30 · fin de la semaine 4", ["Au moins un profil est-il en ligne et réservable ?", "Mike peut-il retirer l'argent en espèces ?", "Si l'une des réponses est non, arrêtez tout le reste et réglez cela d'abord. Utilisez la liste des solutions ci-dessous."]], ["Jour 45 · milieu de la semaine 6", ["Quelqu'un a-t-il réservé un cours d'essai ?", "Sinon, changez trois choses cette semaine : baissez le prix de 1 à 2 $, ajoutez un troisième site et écrivez à 20 personnes.", "Puis refaites le point au jour 52."]]],
+  tr_label: "En cas de problème", tr_h2: "Tous les problèmes prévus, et quoi faire",
+  tr_p: "Ouvrez un problème pour voir à quoi il ressemble, pourquoi il arrive, les étapes pour le régler et un plan de secours. La plupart des retards viennent de l'argent, de la vérification d'identité et des réservations lentes.",
+  fix_count: function (n) { return n + " problèmes et solutions"; }, open_all: "Tout ouvrir", close_all: "Tout fermer",
+  h_why: "Pourquoi cela arrive", h_do: "À faire", h_backup: "Si cela échoue",
+  ai_label: "Aide de l'IA", ai_h2: "Copiez une question, collez-la dans une conversation avec une IA",
+  ai_p: "Ces modèles font gagner des heures. Relisez toujours la réponse à voix haute. Corrigez ce qui n'est pas vrai ou qui ne ressemble pas à Mike. Les questions sont en anglais parce que le profil de Mike sera en anglais. L'IA peut aussi répondre en français ou en arabe si vous le demandez.",
+  copy: "Copier", copied: "Copié", selected: "Sélectionné. Appuyez sur copier.",
+  help_label: "Comment aider", help_h2: "De petites choses qui font une grande différence",
+  help_p: "Un nouveau professeur a besoin de quelques premiers élèves et de quelques avis honnêtes. Voici comment ses amis peuvent aider.",
+  helps: [["Prendre un cours d'essai","Réservez un cours dès que son profil est en ligne. Dites-lui ce qui a aidé et ce qui était confus."],["Écrire un avis sincère","Après un vrai cours, laissez un avis court et honnête. N'en écrivez jamais pour un cours que vous n'avez pas suivi."],["Envoyer une personne","Pensez à quelqu'un qui veut apprendre l'anglais. Envoyez-lui le lien de Mike."],["Relire ses textes","Lisez sa bio et regardez sa vidéo de présentation. Dites-lui si quelque chose est difficile à comprendre."]],
+  slot_b: "Le lien de cours de Mike", slot_t: "Il apparaîtra ici quand son profil sera en ligne, vers la semaine 4.",
+  foot: "Ceci est un plan de lancement, pas une promesse de revenu. Les sites de cours changent leurs prix, leurs frais et leurs règles, et les options de paiement varient selon le pays. Vérifiez les pages actuelles de chaque site. Demandez conseil à un expert local pour les impôts et les règles au Sénégal."
+}
+};
+var PHASES = [
+{ id: "p1", when: L("Weeks 1 and 2", "Semaines 1 et 2"), title: L("Get ready", "Se préparer"),
+  goal: L("Know how you will get paid. Build the pieces every profile needs.", "Savoir comment vous serez payé. Préparer les éléments dont chaque profil a besoin."),
+  steps: L([
+    "Test your payout route. Find out how money moves from a tutoring account to cash in your hand. Send a small test payment of about $5 and follow it all the way. Write down every fee. (See \"I can't get my money out\" below.)",
+    "Pick your first promise. Choose one: English for Arabic speakers, or English for French speakers. Lead with one. Add the other later.",
+    "Take a profile photo. Face a window, stand in front of a plain wall, and show your shoulders. Smile.",
+    "Record a 60-second intro video on your phone. Say your name, where you teach, who you help, and what a first lesson looks like. Speak slowly and hold the phone steady.",
+    "Write your bio. Use the AI helper below, then read it out loud. Change any word that sounds odd. Write only true things.",
+    "Gather your papers. You need a photo ID. Add any school or teaching papers you have. Take clear photos in good light.",
+    "Test your internet at the hours you plan to teach. Run a speed test. Write down the speed and any time it drops."
+  ], [
+    "Testez votre moyen de paiement. Découvrez comment l'argent passe d'un compte de cours à des espèces dans votre main. Envoyez un petit paiement test d'environ 5 $ et suivez-le jusqu'au bout. Notez chaque frais. (Voir « Je n'arrive pas à retirer mon argent » plus bas.)",
+    "Choisissez votre première promesse : anglais pour arabophones, ou anglais pour francophones. Commencez par une seule. Ajoutez l'autre plus tard.",
+    "Prenez une photo de profil. Faites face à une fenêtre, placez-vous devant un mur uni et montrez vos épaules. Souriez.",
+    "Enregistrez une vidéo de présentation de 60 secondes avec votre téléphone. Dites votre nom, où vous enseignez, qui vous aidez et à quoi ressemble un premier cours. Parlez lentement et tenez le téléphone bien droit.",
+    "Écrivez votre bio. Utilisez l'aide de l'IA plus bas, puis lisez-la à voix haute. Changez les mots qui sonnent bizarrement. N'écrivez que des choses vraies.",
+    "Rassemblez vos papiers. Il faut une pièce d'identité avec photo. Ajoutez vos diplômes ou documents d'enseignement. Prenez des photos nettes, en bonne lumière.",
+    "Testez votre internet aux heures où vous voulez enseigner. Faites un test de vitesse. Notez la vitesse et les moments de coupure."
+  ]),
+  done: L("You can name your payout route. You have a photo, a video, a bio, and your papers.", "Vous pouvez nommer votre moyen de paiement. Vous avez une photo, une vidéo, une bio et vos papiers.") },
+
+{ id: "p2", when: L("Weeks 3 and 4", "Semaines 3 et 4"), title: L("Apply and go live", "S'inscrire et se lancer"),
+  goal: L("Get at least one profile live so students can book you.", "Mettre au moins un profil en ligne pour que les élèves puissent réserver."),
+  steps: L([
+    "Sign up on two tutoring sites at the same time, such as Preply and italki. Two sites means one delay does not stop you.",
+    "Finish the ID check on each site. Use the same spelling of your name everywhere.",
+    "Fill in each profile. Add the photo and the video. Pick your subject, your levels, and your languages.",
+    "Set a starting price. Look at five tutors with a similar style. Start a little below them, perhaps $6 to $8 for one lesson. That is a guess, so check real prices first.",
+    "Set your weekly hours. Add evening slots for students in Europe and the Gulf. Check that the time zone is right.",
+    "Teach one full practice lesson to a friend on the real platform. Your first real lesson should not be your first try.",
+    "If a site says no, follow \"The site said no\" below. Then apply to a third place."
+  ], [
+    "Inscrivez-vous sur deux sites de cours en même temps, par exemple Preply et italki. Avec deux sites, un retard n'arrête pas tout.",
+    "Terminez la vérification d'identité sur chaque site. Écrivez votre nom de la même façon partout.",
+    "Remplissez chaque profil. Ajoutez la photo et la vidéo. Choisissez votre matière, vos niveaux et vos langues.",
+    "Fixez un prix de départ. Regardez cinq professeurs au style proche. Commencez un peu en dessous, par exemple 6 à 8 $ le cours. C'est une estimation, vérifiez donc les vrais prix d'abord.",
+    "Fixez vos heures de la semaine. Ajoutez des créneaux en soirée pour les élèves d'Europe et du Golfe. Vérifiez que le fuseau horaire est correct.",
+    "Donnez un cours d'entraînement complet à un ami sur la vraie plateforme. Votre premier vrai cours ne doit pas être votre premier essai.",
+    "Si un site refuse, suivez « Le site a dit non » plus bas. Puis postulez ailleurs."
+  ]),
+  done: L("At least one profile is live, and a friend can book a lesson with you.", "Au moins un profil est en ligne, et un ami peut réserver un cours avec vous.") },
+
+{ id: "p3", when: L("Weeks 5 and 6", "Semaines 5 et 6"), title: L("Find your first students", "Trouver vos premiers élèves"),
+  goal: L("Book trial lessons and finish your first paid lesson.", "Obtenir des cours d'essai et terminer votre premier cours payé."),
+  steps: L([
+    "Tell 10 people. Use the message template in the AI helper. Ask friends, old students, and teachers you know to share your link.",
+    "Offer a trial lesson on each site. Keep it short and cheap, or free. The goal is to meet students and earn reviews.",
+    "Answer every message fast, ideally within a few hours.",
+    "After each lesson, send a thank-you note. List three things you covered and one thing to practice.",
+    "Ask for a review after the second lesson. Never pay for reviews. Never ask a friend to write a fake one.",
+    "Keep a notebook of the mistakes students make most. You will use it in weeks 7 and 8."
+  ], [
+    "Parlez-en à 10 personnes. Utilisez le message modèle de l'aide de l'IA. Demandez à vos amis, anciens élèves et collègues de partager votre lien.",
+    "Proposez un cours d'essai sur chaque site. Gardez-le court et peu cher, ou gratuit. Le but est de rencontrer des élèves et d'obtenir des avis.",
+    "Répondez vite à chaque message, idéalement en quelques heures.",
+    "Après chaque cours, envoyez un petit mot de remerciement. Listez trois choses vues et une chose à pratiquer.",
+    "Demandez un avis après le deuxième cours. Ne payez jamais pour des avis. Ne demandez jamais à un ami d'en écrire un faux.",
+    "Tenez un carnet des erreurs les plus fréquentes de vos élèves. Vous en aurez besoin aux semaines 7 et 8."
+  ]),
+  done: L("You finish your first paid lesson. Aim for week 6. Day 60 is the latest.", "Vous terminez votre premier cours payé. Visez la semaine 6. Le jour 60 est la limite.") },
+
+{ id: "p4", when: L("Weeks 7 and 8", "Semaines 7 et 8"), title: L("Grow what works", "Développer ce qui marche"),
+  goal: L("Turn the first students into steady income.", "Transformer les premiers élèves en revenu régulier."),
+  steps: L([
+    "Raise your price by $1 after you have five good reviews. Keep it there if bookings stay steady.",
+    "Offer a pack of 5 lessons at a small discount to students who liked their trial.",
+    "Make your first YouTube lesson, 2 to 3 minutes long, from your mistakes notebook. Example: three mistakes Arabic speakers make in English.",
+    "Build a one-page booking page with the AI helper. Show your photo, your promise, and a button to your profile. Send YouTube viewers there.",
+    "Look at the numbers: hours taught, money kept after fees, and students who came back. Pick one thing to improve."
+  ], [
+    "Augmentez votre prix de 1 $ après cinq bons avis. Gardez-le si les réservations restent régulières.",
+    "Proposez un lot de 5 cours à petit prix aux élèves qui ont aimé leur essai.",
+    "Faites votre première leçon YouTube, de 2 à 3 minutes, à partir de votre carnet d'erreurs. Exemple : trois erreurs des arabophones en anglais.",
+    "Créez une page de réservation d'une seule page avec l'aide de l'IA. Montrez votre photo, votre promesse et un bouton vers votre profil. Envoyez-y les spectateurs YouTube.",
+    "Regardez les chiffres : heures enseignées, argent gardé après les frais et élèves revenus. Choisissez une chose à améliorer."
+  ]),
+  done: L("You have at least 3 paying students, one video posted, and a simple page that points to your profile.", "Vous avez au moins 3 élèves payants, une vidéo publiée et une page simple qui renvoie vers votre profil.") }
+];
+
+var PROMPTS = [
+  { title: L("Write my tutor bio", "Écrire ma bio de professeur"), note: L("For your profile on a tutoring site.", "Pour votre profil sur un site de cours."),
+    text: "I am Mike Ba, a teacher in a small village in Senegal. I speak English, French, Arabic, Wolof, and Pulaar. Write a 120-word tutor bio in simple English for a tutoring website. Say who I help and what a first lesson looks like. Do not make up degrees, years of experience, or results. Where you need a fact from me, put it in [brackets]." },
+  { title: L("Write my 60-second video script", "Écrire mon script vidéo de 60 secondes"), note: L("Read it a few times, then say it in your own words.", "Lisez-le plusieurs fois, puis dites-le avec vos mots."),
+    text: "Write a 60-second intro video script for an English tutor named Mike Ba in Senegal. Use short, simple sentences. Say who I help, what a first lesson looks like, and invite students to book a trial lesson. Do not make up facts about me. Use [brackets] where you need facts." },
+  { title: L("Plan a 50-minute lesson", "Préparer un cours de 50 minutes"), note: L("Change the level and the topic.", "Changez le niveau et le sujet."),
+    text: "Make a 50-minute English lesson for a beginner who speaks Arabic. Topic: ordering food. Use this shape: 5-minute warm-up, 15-minute new words, 20-minute practice, 5-minute review, 5-minute homework. Include 10 practice sentences. Add a short explanation in Arabic for the hardest idea." },
+  { title: L("Message to send to 10 people", "Message à envoyer à 10 personnes"), note: L("Send it to friends, old students, and teachers.", "Envoyez-le à des amis, d'anciens élèves et des collègues."),
+    text: "Hello [name]. I am Mike, a teacher in Senegal. I now teach English online. If you know anyone who wants to speak English better, I would be glad to help. My link: [link]. A trial lesson costs [price]. Thank you for sharing!" },
+  { title: L("Turn my mistakes notebook into a video", "Transformer mon carnet d'erreurs en vidéo"), note: L("For your first YouTube lesson.", "Pour votre première leçon YouTube."),
+    text: "Here are the three mistakes my students make most: [list them]. Write a 2-minute video script in very simple English. Show the mistake, the fix, and one practice sentence for each. End by telling viewers where to book a lesson." },
+  { title: L("Build my booking page", "Créer ma page de réservation"), note: L("Paste this into an AI that can make web pages.", "Collez ceci dans une IA qui sait créer des pages web."),
+    text: "Make a one-page website for Mike Ba, an English tutor in Senegal. Include: his photo, a clear promise, three short reasons to choose him, a place for reviews, a WhatsApp contact button, and a button that links to his tutoring profile. Use short, simple English and French. Do not invent reviews or numbers. Keep the page light for slow phones." }
+];
+var FIXES = [
+{ group: L("Money", "Argent"), note: L("Fix this first. Everything else depends on it.", "À régler en premier. Tout le reste en dépend."), items: [
+  { id: "f1", title: L("I can't get my money out", "Je n'arrive pas à retirer mon argent"),
+    sees: L("The balance shows in PayPal or on the tutoring site, but cash will not reach you.", "Le solde s'affiche dans PayPal ou sur le site de cours, mais l'argent n'arrive pas jusqu'à vous."),
+    why: L("In some countries, PayPal lets you receive money but does not let you move it to a local bank. Each tutoring site also offers different payout choices by country.", "Dans certains pays, PayPal permet de recevoir de l'argent mais pas de le transférer vers une banque locale. Chaque site de cours propose aussi des moyens de paiement différents selon le pays."),
+    steps: L([
+      "Think back to the last time you got money by PayPal. How did you turn it into cash? Write down every step and every fee.",
+      "Ask your bank, and a Wave or Orange Money agent, what they accept from abroad.",
+      "Open the payout page on each tutoring site. List the choices it offers for Senegal.",
+      "Send a test payment of about $5. Follow it to cash in your hand. Do this before your first lesson.",
+      "Write down the total cost of the test. Add that cost to your price plan."
+    ], [
+      "Repensez à la dernière fois que vous avez reçu de l'argent par PayPal. Comment l'avez-vous transformé en espèces ? Notez chaque étape et chaque frais.",
+      "Demandez à votre banque, et à un agent Wave ou Orange Money, ce qu'ils acceptent venant de l'étranger.",
+      "Ouvrez la page de paiement de chaque site de cours. Listez les choix proposés pour le Sénégal.",
+      "Envoyez un paiement test d'environ 5 $. Suivez-le jusqu'aux espèces dans votre main. Faites-le avant votre premier cours.",
+      "Notez le coût total du test. Ajoutez ce coût à votre calcul de prix."
+    ]),
+    backup: L("Look at Payoneer or a similar service, if it supports Senegal when you sign up. If you ask a trusted person to receive money for you, agree on written rules first and keep records.", "Regardez Payoneer ou un service similaire, s'il accepte le Sénégal au moment de l'inscription. Si vous demandez à une personne de confiance de recevoir l'argent pour vous, fixez d'abord des règles écrites et gardez des preuves.") },
+  { id: "f2", title: L("Fees eat my money", "Les frais mangent mon argent"),
+    sees: L("A $10 lesson turns into much less in your hand.", "Un cours à 10 $ devient beaucoup moins dans votre main."),
+    why: L("The tutoring site keeps a share. The payout service charges a fee. The exchange rate also takes a bite.", "Le site de cours garde une part. Le service de paiement prend des frais. Le taux de change en prend aussi une partie."),
+    steps: L([
+      "Read the fee page on each tutoring site. Write down what it keeps from each lesson.",
+      "Take a $10 lesson and subtract every fee. The answer is what you really earn.",
+      "Pick the payout choice with the lowest cost.",
+      "If there is a fixed fee each time, take money out less often and in bigger amounts."
+    ], [
+      "Lisez la page des frais de chaque site de cours. Notez ce qu'il garde sur chaque cours.",
+      "Prenez un cours à 10 $ et retirez tous les frais. Le résultat est ce que vous gagnez vraiment.",
+      "Choisissez le moyen de retrait le moins cher.",
+      "Si les frais sont fixes à chaque fois, retirez moins souvent et de plus grosses sommes."
+    ]),
+    backup: L("Raise your price a little to cover fees. Students on these sites expect prices to move with reviews.", "Augmentez un peu votre prix pour couvrir les frais. Les élèves de ces sites s'attendent à ce que les prix montent avec les avis.") },
+  { id: "f3", title: L("Taxes and local rules", "Impôts et règles locales"),
+    sees: L("You are not sure if you must report this income.", "Vous ne savez pas si vous devez déclarer ce revenu."),
+    why: L("Rules differ by country and change over time. This page cannot tell you what is right for Senegal.", "Les règles changent selon le pays et avec le temps. Cette page ne peut pas dire ce qui est juste pour le Sénégal."),
+    steps: L([
+      "Keep one simple record: date, student, amount, and fees.",
+      "Ask a local accountant or the tax office what applies to money earned from abroad.",
+      "Save every payout receipt."
+    ], [
+      "Tenez un registre simple : date, élève, montant et frais.",
+      "Demandez à un comptable local ou à l'administration fiscale ce qui s'applique à l'argent gagné à l'étranger.",
+      "Gardez chaque reçu de paiement."
+    ]),
+    backup: L("Ask a teacher friend who already earns money online how they handle it.", "Demandez à un collègue enseignant qui gagne déjà de l'argent en ligne comment il fait.") }
+]},
+{ group: L("Getting approved", "Être accepté"), note: L("Delays here are common and fixable.", "Les retards ici sont fréquents et réparables."), items: [
+  { id: "f4", title: L("The ID check is slow or fails", "La vérification d'identité est lente ou échoue"),
+    sees: L("The site says your ID could not be read, or you wait for days.", "Le site dit que votre pièce d'identité est illisible, ou vous attendez des jours."),
+    why: L("The photo is blurry, the name does not match, or the site is busy.", "La photo est floue, le nom ne correspond pas, ou le site est surchargé."),
+    steps: L([
+      "Use an ID that shows the same name spelling as your profile.",
+      "Take the photo in daylight. Show all four corners. Avoid glare.",
+      "Follow the site's instructions exactly. Do not crop the picture.",
+      "Wait 2 to 3 working days. Then send a polite message to support and include your account email.",
+      "While you wait, work on your second site."
+    ], [
+      "Utilisez une pièce d'identité qui montre la même orthographe de votre nom que votre profil.",
+      "Prenez la photo à la lumière du jour. Montrez les quatre coins. Évitez les reflets.",
+      "Suivez exactement les instructions du site. Ne recadrez pas l'image.",
+      "Attendez 2 à 3 jours ouvrables. Puis envoyez un message poli au support avec l'e-mail de votre compte.",
+      "Pendant l'attente, avancez sur votre deuxième site."
+    ]),
+    backup: L("If one site keeps failing, drop it for now and put your time into the one that works.", "Si un site échoue sans cesse, laissez-le de côté et consacrez votre temps à celui qui marche.") },
+  { id: "f5", title: L("The site said no", "Le site a dit non"),
+    sees: L("You get a message that your application was not accepted.", "Vous recevez un message disant que votre candidature n'a pas été acceptée."),
+    why: L("Common reasons are a weak video, a short bio, poor sound, or a rule for that site. Some sites only accept native English speakers.", "Les raisons fréquentes : vidéo faible, bio courte, mauvais son, ou règle du site. Certains sites n'acceptent que des anglophones natifs."),
+    steps: L([
+      "Ask politely why. Support often tells you what to change.",
+      "Fix the video first. Use better light, quiet sound, and slow speech.",
+      "Make your bio longer and more specific. Say who you help and how.",
+      "Apply again only when the site says you can. Do not open a second account. That can get you banned."
+    ], [
+      "Demandez poliment pourquoi. Le support dit souvent quoi changer.",
+      "Améliorez d'abord la vidéo : meilleure lumière, son calme, parole lente.",
+      "Allongez votre bio et rendez-la plus précise. Dites qui vous aidez et comment.",
+      "Ne postulez à nouveau que lorsque le site le permet. N'ouvrez pas un deuxième compte. Cela peut vous faire bannir."
+    ]),
+    backup: L("Try italki as a community tutor, a tutor listing site such as Superprof, and WhatsApp or Facebook groups of learners. Skip any site that only takes native English speakers.", "Essayez italki comme tuteur communautaire, un site d'annonces de professeurs comme Superprof, et des groupes WhatsApp ou Facebook d'apprenants. Passez les sites qui n'acceptent que des anglophones natifs.") },
+  { id: "f6", title: L("I worry my English is not good enough", "Je crains que mon anglais ne soit pas assez bon"),
+    sees: L("You freeze before you post your profile.", "Vous bloquez avant de publier votre profil."),
+    why: L("Most good teachers feel this. A student needs a teacher who is a few steps ahead, not a perfect one.", "La plupart des bons enseignants ressentent cela. Un élève a besoin d'un professeur quelques pas devant lui, pas d'un professeur parfait."),
+    steps: L([
+      "Choose the level you teach: beginners first.",
+      "Use AI to check your lesson plans and your messages.",
+      "Record yourself teaching for 3 minutes. Listen to it. Fix one thing.",
+      "Ask two friends to listen to your intro video and tell you what is unclear.",
+      "Later, look at a short teaching course such as TEFL if you want a paper to show."
+    ], [
+      "Choisissez le niveau que vous enseignez : les débutants d'abord.",
+      "Utilisez l'IA pour vérifier vos plans de cours et vos messages.",
+      "Enregistrez-vous en train d'enseigner pendant 3 minutes. Écoutez. Corrigez une chose.",
+      "Demandez à deux amis d'écouter votre vidéo de présentation et de dire ce qui n'est pas clair.",
+      "Plus tard, regardez un court cours de formation comme le TEFL si vous voulez un diplôme à montrer."
+    ]),
+    backup: L("Teach beginners first. Beginners need patience and the ability to explain in their own language, which is Mike's gift.", "Enseignez d'abord aux débutants. Les débutants ont besoin de patience et de quelqu'un qui explique dans leur langue, ce qui est le point fort de Mike.") }
+]},
+{ group: L("Getting students", "Trouver des élèves"), note: L("This is where most new tutors wait too long.", "C'est là que la plupart des nouveaux professeurs attendent trop longtemps."), items: [
+  { id: "f7", title: L("Nobody books me", "Personne ne me réserve"),
+    sees: L("Your profile is live and two weeks pass with no messages.", "Votre profil est en ligne et deux semaines passent sans message."),
+    why: L("Usually the price is too high, there are too few open hours, the video is weak, or the promise is too general.", "Souvent le prix est trop haut, il y a trop peu d'heures ouvertes, la vidéo est faible, ou la promesse est trop vague."),
+    steps: L([
+      "Lower your price by $1 to $2 for now.",
+      "Add more open hours, especially evenings.",
+      "Shorten your video to 60 seconds and speak slowly.",
+      "Rewrite your headline as one clear promise, such as English lessons for Arabic speakers.",
+      "Message 10 people you know. Ask each to share your link.",
+      "Answer every message within a few hours."
+    ], [
+      "Baissez votre prix de 1 à 2 $ pour l'instant.",
+      "Ajoutez plus d'heures ouvertes, surtout le soir.",
+      "Réduisez votre vidéo à 60 secondes et parlez lentement.",
+      "Réécrivez votre titre en une promesse claire, comme des cours d'anglais pour arabophones.",
+      "Écrivez à 10 personnes que vous connaissez. Demandez à chacune de partager votre lien.",
+      "Répondez à chaque message en quelques heures."
+    ]),
+    backup: L("Offer a free group class. Post in learner groups on Facebook or WhatsApp. Ask a friend in Europe or the Gulf to share your link.", "Proposez un cours collectif gratuit. Publiez dans des groupes d'apprenants sur Facebook ou WhatsApp. Demandez à un ami en Europe ou dans le Golfe de partager votre lien.") },
+  { id: "f8", title: L("Students try one lesson and leave", "Les élèves essaient un cours et partent"),
+    sees: L("Trial lessons happen, but no one books a second one.", "Les cours d'essai ont lieu, mais personne ne réserve le deuxième."),
+    why: L("The student did not see a clear path forward.", "L'élève n'a pas vu de chemin clair devant lui."),
+    steps: L([
+      "Ask in the first five minutes: what is your goal and when do you need it?",
+      "End the lesson with a mini plan for the next three lessons.",
+      "Send a thank-you note with homework.",
+      "Offer a pack of 5 lessons.",
+      "After lesson three, ask what could be better."
+    ], [
+      "Demandez dans les cinq premières minutes : quel est votre but et pour quand ?",
+      "Terminez le cours avec un mini-plan pour les trois prochains cours.",
+      "Envoyez un mot de remerciement avec des devoirs.",
+      "Proposez un lot de 5 cours.",
+      "Après le troisième cours, demandez ce qui pourrait être mieux."
+    ]),
+    backup: L("Ask one past student for a quick chat about why they left. One honest answer can fix a lot.", "Demandez à un ancien élève un court échange sur la raison de son départ. Une réponse honnête peut beaucoup aider.") },
+  { id: "f9", title: L("Time zones confuse everyone", "Les fuseaux horaires embrouillent tout le monde"),
+    sees: L("Students miss lessons, or book times that do not work.", "Les élèves manquent des cours ou réservent des heures impossibles."),
+    why: L("Senegal uses GMT all year. Saudi Arabia is 3 hours ahead. France is 1 or 2 hours ahead. The US East Coast is 4 or 5 hours behind.", "Le Sénégal utilise GMT toute l'année. L'Arabie saoudite a 3 heures d'avance. La France a 1 ou 2 heures d'avance. La côte Est des États-Unis a 4 ou 5 heures de retard."),
+    steps: L([
+      "Set the right time zone in each profile.",
+      "Add the line: My time is GMT in your bio.",
+      "Use a time converter, such as World Time Buddy, before you confirm a time.",
+      "Open evening slots for the student's time zone. Those are 2 to 6 pm in Senegal for Saudi students."
+    ], [
+      "Réglez le bon fuseau horaire dans chaque profil.",
+      "Ajoutez la phrase : mon heure est GMT dans votre bio.",
+      "Utilisez un convertisseur d'heure, comme World Time Buddy, avant de confirmer une heure.",
+      "Ouvrez des créneaux du soir pour le fuseau de l'élève. Pour des élèves saoudiens, cela donne 14 h à 18 h au Sénégal."
+    ]),
+    backup: L("Pick two fixed lesson times a week and tell everyone. Students then pick one.", "Choisissez deux heures de cours fixes par semaine et dites-le à tout le monde. Les élèves en choisissent une.") }
+]}
+];
+FIXES.push(
+{ group: L("Day-to-day lessons", "Les cours au quotidien"), note: L("Small habits that keep students happy.", "De petites habitudes qui gardent les élèves contents."), items: [
+  { id: "f10", title: L("Internet or power drops during a lesson", "Internet ou le courant coupe pendant un cours"),
+    sees: L("The call freezes, or the laptop dies.", "L'appel se fige, ou l'ordinateur s'éteint."),
+    why: L("Outages happen. What matters is how ready you are.", "Les coupures arrivent. Ce qui compte, c'est d'être prêt."),
+    steps: L([
+      "Keep a second data plan or SIM as a backup.",
+      "Learn how to share your phone's internet with your laptop.",
+      "Keep a power bank and a charged laptop.",
+      "Tell students: if the call drops, I will join again within 2 minutes. I will also message you here.",
+      "If the lesson cannot finish, offer a free make-up time."
+    ], [
+      "Gardez un second forfait de données ou une seconde carte SIM en secours.",
+      "Apprenez à partager l'internet de votre téléphone avec votre ordinateur.",
+      "Gardez une batterie externe et un ordinateur chargé.",
+      "Dites aux élèves : si l'appel coupe, je me reconnecte dans 2 minutes. Je vous écris aussi ici.",
+      "Si le cours ne peut pas se terminer, proposez un rattrapage gratuit."
+    ]),
+    backup: L("Note which hours your internet is best. Offer most of your lessons then.", "Notez les heures où votre internet est le meilleur. Proposez la plupart de vos cours à ces heures.") },
+  { id: "f11", title: L("Sound and video are poor", "Le son et la vidéo sont mauvais"),
+    sees: L("Students say they can't hear you. They leave early.", "Les élèves disent qu'ils ne vous entendent pas. Ils partent tôt."),
+    why: L("Bad sound hurts more than a bad picture.", "Un mauvais son gêne plus qu'une mauvaise image."),
+    steps: L([
+      "Use headphones with a microphone.",
+      "Sit in a quiet room. Close the door if you can.",
+      "Face a window so your face is bright.",
+      "Close other apps and browser tabs.",
+      "Test with a friend before each new student."
+    ], [
+      "Utilisez un casque avec microphone.",
+      "Installez-vous dans une pièce calme. Fermez la porte si possible.",
+      "Faites face à une fenêtre pour que votre visage soit éclairé.",
+      "Fermez les autres applications et onglets.",
+      "Testez avec un ami avant chaque nouvel élève."
+    ]),
+    backup: L("If the video is poor, turn it off and share your screen. Clear sound matters most.", "Si la vidéo est mauvaise, coupez-la et partagez votre écran. Un son clair compte le plus.") },
+  { id: "f12", title: L("I don't know what to teach in each lesson", "Je ne sais pas quoi enseigner à chaque cours"),
+    sees: L("You spend hours making a lesson, or you run out of ideas.", "Vous passez des heures à préparer un cours, ou vous manquez d'idées."),
+    why: L("Without a plan, each lesson starts from nothing.", "Sans plan, chaque cours repart de zéro."),
+    steps: L([
+      "Use one lesson shape every time: 5 minutes warm-up, 15 minutes new idea, 20 minutes practice, 5 minutes review, 5 minutes homework.",
+      "Ask the AI helper for a plan in that shape. Check it and change it.",
+      "Keep a folder of finished lessons so you can reuse them.",
+      "For test students, use the official free practice papers for that test."
+    ], [
+      "Utilisez la même forme de cours à chaque fois : 5 minutes d'échauffement, 15 minutes de nouvelle idée, 20 minutes de pratique, 5 minutes de révision, 5 minutes de devoirs.",
+      "Demandez à l'aide de l'IA un plan dans cette forme. Vérifiez-le et modifiez-le.",
+      "Gardez un dossier de cours terminés pour les réutiliser.",
+      "Pour les élèves qui préparent un examen, utilisez les sujets d'entraînement gratuits officiels de cet examen."
+    ]),
+    backup: L("Teach from a short story or a news article at the student's level, then talk about it.", "Enseignez à partir d'une courte histoire ou d'un article au niveau de l'élève, puis discutez-en.") },
+  { id: "f13", title: L("A student does not show up", "Un élève ne se présente pas"),
+    sees: L("You wait and nobody joins.", "Vous attendez et personne ne se connecte."),
+    why: L("Time zones, forgetting, or a bad connection.", "Fuseaux horaires, oubli ou mauvaise connexion."),
+    steps: L([
+      "Wait about 10 minutes. Then send a kind message on the platform.",
+      "Follow the site's no-show rule so you still get paid when it applies.",
+      "Offer one new time.",
+      "Put your cancellation rule in your profile, such as 12 hours notice."
+    ], [
+      "Attendez environ 10 minutes. Puis envoyez un message aimable sur la plateforme.",
+      "Suivez la règle d'absence du site pour être payé quand elle s'applique.",
+      "Proposez une nouvelle heure.",
+      "Mettez votre règle d'annulation dans votre profil, par exemple 12 heures de préavis."
+    ]),
+    backup: L("If it happens often with one student, ask for a pack paid in advance.", "Si cela arrive souvent avec un élève, demandez un lot payé d'avance.") }
+]},
+{ group: L("Staying safe", "Rester en sécurité"), note: L("Read this once. It can save you a lot.", "Lisez ceci une fois. Cela peut vous éviter beaucoup de problèmes."), items: [
+  { id: "f14", title: L("Someone wants to pay outside the site, or sends too much money", "Quelqu'un veut payer hors du site, ou envoie trop d'argent"),
+    sees: L("A message says: pay me or let me pay you by another way. Or a student sends extra money and asks you to return it.", "Un message dit : payez-moi ou laissez-moi vous payer autrement. Ou un élève envoie trop d'argent et vous demande d'en rendre une partie."),
+    why: L("These are common scams. The extra money is often fake or stolen, and it is taken back later.", "Ce sont des arnaques courantes. L'argent en trop est souvent faux ou volé, et il est repris plus tard."),
+    steps: L([
+      "Keep all talks and all payments on the tutoring site.",
+      "Never accept a check, an overpayment, or a refund request.",
+      "Never share your passwords or any code sent to your phone or email.",
+      "Never pay a fee to get a job or a student.",
+      "Report the message to the site's support."
+    ], [
+      "Gardez toutes les discussions et tous les paiements sur le site de cours.",
+      "N'acceptez jamais un chèque, un trop-perçu ou une demande de remboursement.",
+      "Ne partagez jamais vos mots de passe ni un code reçu sur votre téléphone ou votre e-mail.",
+      "Ne payez jamais de frais pour obtenir un travail ou un élève.",
+      "Signalez le message au support du site."
+    ]),
+    backup: L("If you are unsure, ask a friend you trust before you reply.", "En cas de doute, demandez à un ami de confiance avant de répondre.") },
+  { id: "f15", title: L("A student is rude or makes me uncomfortable", "Un élève est impoli ou me met mal à l'aise"),
+    sees: L("A student says unkind or inappropriate things in a lesson.", "Un élève dit des choses désagréables ou déplacées pendant un cours."),
+    why: L("It is rare, but it happens.", "C'est rare, mais cela arrive."),
+    steps: L([
+      "Say calmly: I will end the lesson now.",
+      "End the call.",
+      "Take screenshots of the messages.",
+      "Report the student to the site."
+    ], [
+      "Dites calmement : je termine le cours maintenant.",
+      "Terminez l'appel.",
+      "Faites des captures d'écran des messages.",
+      "Signalez l'élève au site."
+    ]),
+    backup: L("You may block a student. Your safety and your peace matter more than one lesson.", "Vous pouvez bloquer un élève. Votre sécurité et votre tranquillité comptent plus qu'un cours.") }
+]},
+{ group: L("Keeping going", "Tenir bon"), note: L("Slow weeks are normal.", "Les semaines lentes sont normales."), items: [
+  { id: "f16", title: L("I don't have enough time", "Je n'ai pas assez de temps"),
+    sees: L("Work, family, and village duties leave little room.", "Le travail, la famille et les devoirs du village laissent peu de place."),
+    why: L("A teacher already has a full day.", "Un enseignant a déjà une journée bien remplie."),
+    steps: L([
+      "Start with 5 hours a week. Pick the same hours each week.",
+      "Tell your family when those hours are.",
+      "Use AI to plan lessons so planning takes minutes.",
+      "Pause new students if you feel overloaded."
+    ], [
+      "Commencez avec 5 heures par semaine. Choisissez les mêmes heures chaque semaine.",
+      "Dites à votre famille quelles sont ces heures.",
+      "Utilisez l'IA pour préparer les cours afin que la préparation prenne quelques minutes.",
+      "Mettez en pause les nouveaux élèves si vous vous sentez débordé."
+    ]),
+    backup: L("Teach a smaller number of longer lessons, or teach in a group of 3 to 5.", "Donnez moins de cours mais plus longs, ou enseignez à un groupe de 3 à 5 personnes.") },
+  { id: "f17", title: L("The first month is slow and I feel stuck", "Le premier mois est lent et je me sens bloqué"),
+    sees: L("Few messages. Doubts. You think about quitting.", "Peu de messages. Des doutes. Vous pensez à abandonner."),
+    why: L("Most new tutors wait weeks for a first booking. It is normal.", "La plupart des nouveaux professeurs attendent des semaines une première réservation. C'est normal."),
+    steps: L([
+      "Count small wins each week: profile views, messages, trial lessons.",
+      "Pick one thing to change each week. Change only one.",
+      "Meet a friend for 15 minutes each week. Say what you did and what is next.",
+      "Look at the day 30 and day 45 checkpoints."
+    ], [
+      "Comptez les petites victoires chaque semaine : vues du profil, messages, cours d'essai.",
+      "Choisissez une seule chose à changer chaque semaine.",
+      "Retrouvez un ami 15 minutes chaque semaine. Dites ce que vous avez fait et la suite.",
+      "Regardez les points de contrôle du jour 30 et du jour 45."
+    ]),
+    backup: L("If nothing works by day 60, ask for honest feedback from three people. Then pick one new path, such as a new site or a new group of students.", "Si rien ne marche au jour 60, demandez un avis honnête à trois personnes. Puis choisissez une nouvelle voie, comme un nouveau site ou un nouveau public d'élèves.") },
+  { id: "f18", title: L("The plan runs past two months", "Le plan dépasse deux mois"),
+    sees: L("It is day 55 and there is still no paid lesson.", "Nous sommes au jour 55 et il n'y a toujours aucun cours payé."),
+    why: L("A site delay, an ID problem, or a quiet market can stretch the plan.", "Un retard d'un site, un problème d'identité ou un marché calme peuvent allonger le plan."),
+    steps: L([
+      "Write down where it is stuck. Money, approval, or bookings?",
+      "Use the fix above for that problem.",
+      "Message 20 people and ask for one trial lesson from anyone they know.",
+      "Offer a free 15-minute trial this week."
+    ], [
+      "Notez où cela bloque : argent, acceptation ou réservations ?",
+      "Utilisez la solution ci-dessus pour ce problème.",
+      "Écrivez à 20 personnes et demandez un cours d'essai à quelqu'un qu'elles connaissent.",
+      "Proposez un essai gratuit de 15 minutes cette semaine."
+    ]),
+    backup: L("A single paid lesson from a friend of a friend counts. Get one in hand, then build.", "Un seul cours payé par un ami d'un ami compte. Obtenez-en un, puis construisez à partir de là.") }
+]}
+);
+var STORE = "mike-ba-site-v2";
+var state = { lang: "en", brand: "teranga", checks: {} };
+try {
+  var saved = JSON.parse(localStorage.getItem(STORE) || "{}") || {};
+  if (saved.lang) state.lang = saved.lang;
+  if (saved.brand) state.brand = saved.brand;
+  if (saved.checks) state.checks = saved.checks;
+  if (!saved.lang && /^fr/i.test(navigator.language || "")) state.lang = "fr";
+} catch (e) {}
+function persist() { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {} }
+function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+function T() { return STR[state.lang]; }
+function tr(o) { return o[state.lang]; }
+function brandById(id) { for (var i = 0; i < BRANDS.length; i++) if (BRANDS[i].id === id) return BRANDS[i]; return BRANDS[0]; }
+function kebab(k) { return k.replace(/[A-Z]/g, function (m) { return "-" + m.toLowerCase(); }); }
+function svgMark(b) { return '<svg viewBox="0 0 64 64" role="img" aria-hidden="true">' + b.mark + "</svg>"; }
+
+var loadedFonts = {};
+function loadFonts(b) {
+  if (!b.fonts || loadedFonts[b.id]) return;
+  loadedFonts[b.id] = true;
+  var l = document.createElement("link"); l.rel = "stylesheet"; l.href = b.fonts; document.head.appendChild(l);
+}
+
+function applyBrand(id) {
+  var b = brandById(id); state.brand = b.id;
+  var s = document.documentElement.style;
+  ["l", "d"].forEach(function (m) {
+    Object.keys(b[m]).forEach(function (k) { s.setProperty("--" + m + "-" + kebab(k), b[m][k]); });
+  });
+  s.setProperty("--r", b.r); s.setProperty("--r-card", b.rc);
+  s.setProperty("--f-display", b.fd); s.setProperty("--f-body", b.fb);
+  s.setProperty("--h-w", b.hw); s.setProperty("--h3-w", b.h3w); s.setProperty("--h-ls", b.hls);
+  s.setProperty("--pat-img", b.pat.img); s.setProperty("--pat-size", b.pat.size); s.setProperty("--pat-pos", b.pat.pos);
+  loadFonts(b);
+  document.getElementById("barMark").innerHTML = svgMark(b);
+  persist();
+}
+
+function renderStatic() {
+  var t = T();
+  document.documentElement.lang = state.lang;
+  var nodes = document.querySelectorAll("[data-i]");
+  for (var i = 0; i < nodes.length; i++) { var v = t[nodes[i].getAttribute("data-i")]; if (typeof v === "string") nodes[i].textContent = v; }
+  document.getElementById("lEN").setAttribute("aria-pressed", String(state.lang === "en"));
+  document.getElementById("lFR").setAttribute("aria-pressed", String(state.lang === "fr"));
+  var wk = document.getElementById("weeks"); wk.textContent = "";
+  t.weeks.forEach(function (w, i) {
+    var li = el("li", i === 5 ? "goal" : ""); li.appendChild(el("b", "", w[0])); li.appendChild(el("span", "", w[1])); wk.appendChild(li);
+  });
+  var of = document.getElementById("offers"); of.textContent = "";
+  t.offers.forEach(function (o) { var d = el("div", "offer"); d.appendChild(el("h3", "", o[0])); d.appendChild(el("p", "", o[1])); of.appendChild(d); });
+  var wy = document.getElementById("why"); wy.textContent = "";
+  t.why.forEach(function (o) { var d = el("div"); d.appendChild(el("h3", "", o[0])); d.appendChild(el("p", "", o[1])); wy.appendChild(d); });
+  var hl = document.getElementById("helpList"); hl.textContent = "";
+  t.helps.forEach(function (o) { var li = el("li"); li.appendChild(el("b", "", o[0])); li.appendChild(el("span", "", o[1])); hl.appendChild(li); });
+  var ck = document.getElementById("checks"); ck.textContent = "";
+  t.cps.forEach(function (c) {
+    var d = el("div", "check"); d.appendChild(el("b", "label", c[0])); var ul = el("ul");
+    c[1].forEach(function (x) { ul.appendChild(el("li", "", x)); }); d.appendChild(ul); ck.appendChild(d);
+  });
+}
+
+function renderBrandUI() {
+  var t = T();
+  var sel = document.getElementById("brandSel"); sel.textContent = "";
+  BRANDS.forEach(function (b) { var o = el("option", "", tr(b.name)); o.value = b.id; if (b.id === state.brand) o.selected = true; sel.appendChild(o); });
+  var pick = document.getElementById("pick"); pick.textContent = "";
+  BRANDS.forEach(function (b) {
+    var btn = el("button"); btn.type = "button"; btn.setAttribute("aria-pressed", String(b.id === state.brand));
+    var strip = el("div", "strip");
+    ["hero", "accent", "bg", "ink", "accentText"].forEach(function (k) { var i = el("i"); i.style.background = b.l[k]; strip.appendChild(i); });
+    btn.appendChild(strip); btn.appendChild(el("b", "", tr(b.name))); btn.appendChild(el("small", "", tr(b.tag)));
+    btn.addEventListener("click", function () { applyBrand(b.id); renderBrandUI(); });
+    pick.appendChild(btn);
+  });
+  var b = brandById(state.brand);
+  var g = document.getElementById("guide"); g.textContent = "";
+  function card(title, wide) { var c = el("div", "gcard" + (wide ? " wide" : "")); c.appendChild(el("h3", "", title)); g.appendChild(c); return c; }
+  var c1 = card(tr(b.name) + " — " + t.g_idea, true);
+  c1.appendChild(el("p", "", tr(b.idea)));
+  var tagWrap = el("div"); tr(b.voiceWords).split(", ").forEach(function (w) { tagWrap.appendChild(el("span", "tag", w)); }); c1.appendChild(tagWrap);
+  var c2 = card(t.g_logo);
+  var lr = el("div", "logo-row"); var sv = el("div"); sv.innerHTML = svgMark(b); lr.appendChild(sv.firstChild); lr.appendChild(el("span", "logo-word", "Mike Ba")); c2.appendChild(lr);
+  c2.appendChild(el("p", "", t.g_logo_rules));
+  var c3 = card(t.g_type);
+  var sp = el("div", "specimen"); sp.appendChild(el("div", "big", t.g_samplehead)); sp.appendChild(el("p", "", t.g_sampletext)); c3.appendChild(sp);
+  c3.appendChild(el("p", "", b.fontNames)); c3.appendChild(el("p", "", t.g_type_note));
+  var c4 = card(t.g_colors, true);
+  var chips = el("div", "chips");
+  b.colors.forEach(function (col) {
+    var ch = el("div", "chip"); var sw = el("i"); sw.style.background = "linear-gradient(90deg, " + b.l[col[0]] + " 50%, " + b.d[col[0]] + " 50%)"; ch.appendChild(sw);
+    var d = el("div"); d.appendChild(el("b", "", tr(col[1]))); d.appendChild(document.createTextNode(tr(col[2]))); d.appendChild(document.createElement("br"));
+    d.appendChild(document.createTextNode(t.g_light + " " + b.l[col[0]] + " · " + t.g_dark + " " + b.d[col[0]])); ch.appendChild(d); chips.appendChild(ch);
+  });
+  c4.appendChild(chips);
+  var c5 = card(t.g_voice); c5.appendChild(el("p", "", "“" + tr(b.voiceLine) + "”"));
+  var c6 = card(t.g_best); c6.appendChild(el("p", "", tr(b.best))); c6.appendChild(el("h4", "", t.g_trade)); c6.appendChild(el("p", "", tr(b.trade)));
+  var c7 = card(t.g_do + " / " + t.g_dont, true);
+  var dd = el("div", "dd"); var a = el("div"); a.appendChild(el("h4", "", t.g_do)); var u1 = el("ul"); tr(b.dos).forEach(function (x) { u1.appendChild(el("li", "", x)); }); a.appendChild(u1);
+  var z = el("div"); z.appendChild(el("h4", "", t.g_dont)); var u2 = el("ul"); tr(b.donts).forEach(function (x) { u2.appendChild(el("li", "", x)); }); z.appendChild(u2);
+  dd.appendChild(a); dd.appendChild(z); c7.appendChild(dd);
+  var rs = document.getElementById("research"); rs.textContent = "";
+  rs.appendChild(el("h3", "", t.rs_h)); var ul = el("ul");
+  t.rs_items.forEach(function (it) {
+    var li = el("li"); li.appendChild(document.createTextNode(it[0] + " ")); var s = el("small"); var an = el("a", "", it[2]); an.href = it[1]; an.target = "_blank"; an.rel = "noopener"; s.appendChild(an); li.appendChild(s); ul.appendChild(li);
+  });
+  rs.appendChild(ul); rs.appendChild(el("h3", "", t.rs_do_h)); var u3 = el("ul"); t.rs_do.forEach(function (x) { u3.appendChild(el("li", "", x)); }); rs.appendChild(u3); rs.appendChild(el("p", "", t.rs_next));
+}
+
+var totalSteps = 0; PHASES.forEach(function (p) { totalSteps += tr_en(p.steps).length; });
+function tr_en(o) { return o.en; }
+function updateProgress() {
+  var done = 0; Object.keys(state.checks).forEach(function (k) { if (state.checks[k]) done++; });
+  var pct = Math.round((done / totalSteps) * 100);
+  document.getElementById("progText").textContent = T().prog_text(done, totalSteps);
+  document.getElementById("progPct").textContent = pct + "%";
+  document.getElementById("meterFill").style.width = pct + "%";
+  document.getElementById("meter").setAttribute("aria-valuenow", String(pct));
+}
+
+function renderPlan() {
+  var host = document.getElementById("phases"); host.textContent = "";
+  PHASES.forEach(function (p) {
+    var row = el("div", "phase"); var left = el("div");
+    left.appendChild(el("div", "when", tr(p.when))); left.appendChild(el("h3", "", tr(p.title))); left.appendChild(el("p", "goal", tr(p.goal)));
+    var right = el("div"); var ul = el("ul", "steps");
+    tr(p.steps).forEach(function (s, i) {
+      var id = p.id + "-" + i; var li = el("li"); var lab = el("label"); var cb = document.createElement("input");
+      cb.type = "checkbox"; cb.id = "chk-" + id; cb.checked = !!state.checks[id];
+      cb.addEventListener("change", function () { state.checks[id] = cb.checked; persist(); updateProgress(); });
+      lab.appendChild(cb); lab.appendChild(el("span", "", s)); li.appendChild(lab); ul.appendChild(li);
+    });
+    right.appendChild(ul);
+    var d = el("div", "done"); d.appendChild(el("em", "", T().done_when)); d.appendChild(document.createTextNode(tr(p.done))); right.appendChild(d);
+    row.appendChild(left); row.appendChild(right); host.appendChild(row);
+  });
+  updateProgress();
+}
+
+var allOpen = false;
+function renderFixes() {
+  var host = document.getElementById("fixes");
+  var openIds = {}; Array.prototype.forEach.call(host.querySelectorAll("details[open]"), function (d) { openIds[d.id] = true; });
+  host.textContent = ""; var n = 0;
+  FIXES.forEach(function (g) {
+    var gt = el("div", "group-title"); gt.appendChild(el("h3", "", tr(g.group))); gt.appendChild(el("span", "", tr(g.note))); host.appendChild(gt);
+    g.items.forEach(function (f) {
+      n++; var d = el("details", "fix"); d.id = f.id; if (openIds[f.id] || allOpen) d.open = true;
+      var s = el("summary"); s.appendChild(el("b", "", tr(f.title))); s.appendChild(el("small", "", tr(f.sees))); d.appendChild(s);
+      var body = el("div", "fix-body");
+      var a = el("div"); a.appendChild(el("h4", "", T().h_why)); a.appendChild(el("p", "", tr(f.why))); body.appendChild(a);
+      var b = el("div"); b.appendChild(el("h4", "", T().h_do)); var ol = el("ol"); tr(f.steps).forEach(function (x) { ol.appendChild(el("li", "", x)); }); b.appendChild(ol); body.appendChild(b);
+      var c = el("div", "backup"); c.appendChild(el("h4", "", T().h_backup)); c.appendChild(el("p", "", tr(f.backup))); body.appendChild(c);
+      d.appendChild(body); host.appendChild(d);
+    });
+  });
+  document.getElementById("fixCount").textContent = T().fix_count(n);
+  document.getElementById("toggleAll").textContent = allOpen ? T().close_all : T().open_all;
+}
+
+function renderPrompts() {
+  var host = document.getElementById("prompts"); host.textContent = "";
+  PROMPTS.forEach(function (p, i) {
+    var card = el("div", "prompt"); var h = el("header"); h.appendChild(el("h3", "", tr(p.title))); h.appendChild(el("p", "", tr(p.note)));
+    var pre = el("pre", "", p.text); pre.id = "prompt-" + i; pre.tabIndex = 0;
+    var f = el("footer"); var btn = el("button", "btn small", T().copy); btn.type = "button";
+    btn.addEventListener("click", function () {
+      function fallback() { var r = document.createRange(); r.selectNodeContents(pre); var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); btn.textContent = T().selected; }
+      try { navigator.clipboard.writeText(p.text).then(function () { btn.textContent = T().copied; }, fallback); } catch (e) { fallback(); }
+      setTimeout(function () { btn.textContent = T().copy; }, 2500);
+    });
+    f.appendChild(btn); card.appendChild(h); card.appendChild(pre); card.appendChild(f); host.appendChild(card);
+  });
+}
+
+function renderAll() { renderStatic(); renderBrandUI(); renderPlan(); renderFixes(); renderPrompts(); }
+function setLang(l) { state.lang = l; persist(); renderAll(); }
+
+document.getElementById("lEN").addEventListener("click", function () { setLang("en"); });
+document.getElementById("lFR").addEventListener("click", function () { setLang("fr"); });
+document.getElementById("brandSel").addEventListener("change", function (e) { applyBrand(e.target.value); renderBrandUI(); });
+document.getElementById("toggleAll").addEventListener("click", function () {
+  allOpen = !allOpen; var list = document.getElementById("fixes").querySelectorAll("details");
+  for (var i = 0; i < list.length; i++) list[i].open = allOpen;
+  document.getElementById("toggleAll").textContent = allOpen ? T().close_all : T().open_all;
+});
+
+applyBrand(state.brand);
+renderAll();
+
+</script>
+</body>
+</html>
